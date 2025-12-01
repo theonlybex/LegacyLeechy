@@ -388,7 +388,7 @@ function App() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white pt-20 pb-32">
+      <section className="relative overflow-hidden bg-gradient-to-r from-teal-700 via-teal-600 to-green-600 pt-20 pb-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -398,10 +398,10 @@ function App() {
                   alt="Leechy Logo"
                   className="w-48 h-auto mb-6"
                 />
-                <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
                   List it. Earn on it.
                 </h1>
-                <p className="text-xl text-gray-600">
+                <p className="text-xl text-gray-100">
                   Turn your unused items into cash.<br />List your items and start earning today.
                 </p>
               </div>
@@ -418,7 +418,7 @@ function App() {
                     setSearchOpen(true);
                     setFilterOpen(true);
                   }}
-                  className="border-2 border-green-500 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition"
+                  className="bg-white text-teal-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition"
                 >
                   Browse Listings
                 </button>
