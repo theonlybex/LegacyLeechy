@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { Search } from 'lucide-react';
 
 interface SignUpPageProps {
   onClose: () => void;
@@ -21,20 +21,56 @@ export default function SignUpPage({ onClose }: SignUpPageProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-r from-teal-700 via-teal-600 to-green-600">
-      <div className="absolute inset-0 opacity-10" style={{
+    <div className="fixed inset-0 z-50 bg-gradient-to-r from-teal-700 via-teal-600 to-green-600">
+      <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-8">
+              <button
+                onClick={onClose}
+                className="hover:opacity-80 transition cursor-pointer"
+              >
+                <img
+                  src="/leechyLlogo.jpg"
+                  alt="Leechy Logo"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+              </button>
+              <div className="hidden md:flex items-center flex-1 max-w-md">
+                <div className="relative w-full">
+                  <Search size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-green-600 pointer-events-none" />
+                  <input
+                    type="text"
+                    placeholder="Search listings..."
+                    className="w-full pl-10 pr-4 py-2 bg-transparent text-gray-900 placeholder-gray-500 outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="hidden md:flex items-center space-x-6">
+              <button className="text-green-600 hover:text-green-700 transition font-medium">Post a new listing</button>
+              <button
+                onClick={onClose}
+                className="text-gray-900 hover:text-gray-700 transition font-medium"
+              >
+                Home
+              </button>
+              <button className="text-gray-900 hover:text-gray-700 transition font-medium">Listings</button>
+              <button className="text-gray-900 hover:text-gray-700 transition font-medium">Sign up</button>
+              <button className="text-gray-900 hover:text-gray-700 transition font-medium">Log in</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div className="absolute inset-0 top-16 opacity-10" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cg fill='none' stroke='white' stroke-width='2'%3E%3Ccircle cx='100' cy='100' r='40'/%3E%3Crect x='200' y='150' width='80' height='60'/%3E%3Cpath d='M300 300 L350 250 L400 300'/%3E%3Cellipse cx='500' cy='200' rx='50' ry='30'/%3E%3Cpolygon points='600,150 650,200 600,250 550,200'/%3E%3Ccircle cx='800' cy='400' r='35'/%3E%3Crect x='900' y='350' width='70' height='90'/%3E%3Cpath d='M100 500 Q150 450 200 500'/%3E%3Cellipse cx='350' cy='600' rx='45' ry='25'/%3E%3Cpolygon points='500,550 550,600 500,650 450,600'/%3E%3Ccircle cx='700' cy='650' r='30'/%3E%3Crect x='850' y='600' width='60' height='80'/%3E%3Cpath d='M1000 500 L1050 550 L1100 500'/%3E%3C/g%3E%3C/svg%3E")`,
         backgroundRepeat: 'repeat',
       }}></div>
 
-      <button
-        onClick={onClose}
-        className="absolute top-6 right-6 text-white hover:bg-white/20 rounded-full p-2 transition z-10"
-      >
-        <X size={24} />
-      </button>
-
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden">
+      <div className="relative flex items-center justify-center min-h-[calc(100vh-4rem)] py-8">
+        <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden">
         <div className="flex border-b border-gray-200">
           <button
             onClick={() => setActiveTab('signup')}
@@ -202,6 +238,7 @@ export default function SignUpPage({ onClose }: SignUpPageProps) {
               </button>
             </form>
           )}
+        </div>
         </div>
       </div>
     </div>
