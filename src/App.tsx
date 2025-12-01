@@ -393,7 +393,7 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-8">
-                <div className="space-y-2">
+                <div>
                   <img
                     src="/LeechyMainLogoTransparent.png"
                     alt="Leechy Logo"
