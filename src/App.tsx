@@ -393,11 +393,11 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-8">
-                <div className="flex items-end gap-2">
+                <div>
                   <img
                     src="/LeechyMainLogoTransparentCut.png"
                     alt="Leechy Logo"
-                    className="w-16 h-auto"
+                    className="w-64 h-auto"
                   />
                   <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
                     List it. Earn on it.
