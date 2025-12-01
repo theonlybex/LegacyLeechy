@@ -397,7 +397,7 @@ function App() {
                   <img
                     src="/LeechyMainLogoTransparentCut.png"
                     alt="Leechy Logo"
-                    className="w-64 h-auto -ml-3"
+                    className="w-52 h-auto -ml-3"
                   />
                   <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
                     List it. Earn on it.
