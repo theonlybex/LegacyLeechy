@@ -399,7 +399,7 @@ function App() {
                     alt="Leechy Logo"
                     className="w-52 h-auto -ml-3 -mt-8"
                   />
-                  <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
+                  <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                     List it. Earn on it.
                   </h1>
                 </div>
