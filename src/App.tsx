@@ -540,7 +540,7 @@ function App() {
 
             <div className="relative flex items-center justify-center h-[600px]">
               <img
-                src="/TransparentAppleStore copy.PNG"
+                src="/TransparentAppleStore copy copy.PNG"
                 alt="App preview"
                 className="h-full w-auto object-contain"
               />
