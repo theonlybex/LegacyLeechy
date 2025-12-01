@@ -547,7 +547,11 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <div className="text-2xl font-bold text-gray-900 mb-4">leechy</div>
+              <img
+                src="/leechyLlogo.jpg"
+                alt="Leechy Logo"
+                className="w-12 h-12 rounded-full object-cover mb-4"
+              />
               <p className="text-gray-600">Turn your unused items into cash.</p>
             </div>
             <div>
