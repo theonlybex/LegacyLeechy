@@ -3,10 +3,11 @@ import { Search } from 'lucide-react';
 
 interface SignUpPageProps {
   onClose: () => void;
+  initialTab?: 'signup' | 'login';
 }
 
-export default function SignUpPage({ onClose }: SignUpPageProps) {
-  const [activeTab, setActiveTab] = useState<'signup' | 'login'>('signup');
+export default function SignUpPage({ onClose, initialTab = 'signup' }: SignUpPageProps) {
+  const [activeTab, setActiveTab] = useState<'signup' | 'login'>(initialTab);
   const [formData, setFormData] = useState({
     email: '',
     firstName: '',

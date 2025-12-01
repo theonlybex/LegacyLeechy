@@ -14,6 +14,7 @@ function App() {
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [initialTab, setInitialTab] = useState<'signup' | 'login'>('signup');
 
   useEffect(() => {
     if (searchOpen) {
@@ -161,13 +162,19 @@ function App() {
                 Listings
               </button>
               <button
-                onClick={() => setShowSignUp(true)}
+                onClick={() => {
+                  setInitialTab('signup');
+                  setShowSignUp(true);
+                }}
                 className="text-gray-900 hover:text-gray-700 transition font-medium"
               >
                 Sign up
               </button>
               <button
-                onClick={() => setShowSignUp(true)}
+                onClick={() => {
+                  setInitialTab('login');
+                  setShowSignUp(true);
+                }}
                 className="text-gray-900 hover:text-gray-700 transition font-medium"
               >
                 Log in
@@ -588,7 +595,7 @@ function App() {
         </div>
       </footer>
 
-      {showSignUp && <SignUpPage onClose={() => setShowSignUp(false)} />}
+      {showSignUp && <SignUpPage onClose={() => setShowSignUp(false)} initialTab={initialTab} />}
     </div>
   );
 }
