@@ -1,6 +1,7 @@
 import { ChevronRight, Search, MessageSquare, Plus, Download, Apple, Play, SlidersHorizontal, Minus } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { supabase, type Listing } from './lib/supabase';
+import SignUpPage from './components/SignUpPage';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,6 +13,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   useEffect(() => {
     if (searchOpen) {
@@ -153,8 +155,18 @@ function App() {
               >
                 Listings
               </button>
-              <button className="text-gray-900 hover:text-gray-700 transition font-medium">Sign up</button>
-              <button className="text-gray-900 hover:text-gray-700 transition font-medium">Log in</button>
+              <button
+                onClick={() => setShowSignUp(true)}
+                className="text-gray-900 hover:text-gray-700 transition font-medium"
+              >
+                Sign up
+              </button>
+              <button
+                onClick={() => setShowSignUp(true)}
+                className="text-gray-900 hover:text-gray-700 transition font-medium"
+              >
+                Log in
+              </button>
             </div>
 
             <button
@@ -556,6 +568,8 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {showSignUp && <SignUpPage onClose={() => setShowSignUp(false)} />}
     </div>
   );
 }
