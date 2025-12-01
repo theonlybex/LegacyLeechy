@@ -57,9 +57,24 @@ export default function SignUpPage({ onClose, initialTab = 'signup' }: SignUpPag
               >
                 Home
               </button>
-              <button className="text-gray-900 hover:text-gray-700 transition font-medium">Listings</button>
-              <button className="text-gray-900 hover:text-gray-700 transition font-medium">Sign up</button>
-              <button className="text-gray-900 hover:text-gray-700 transition font-medium">Log in</button>
+              <button
+                onClick={onClose}
+                className="text-gray-900 hover:text-gray-700 transition font-medium"
+              >
+                Listings
+              </button>
+              <button
+                onClick={() => setActiveTab('signup')}
+                className="text-gray-900 hover:text-gray-700 transition font-medium"
+              >
+                Sign up
+              </button>
+              <button
+                onClick={() => setActiveTab('login')}
+                className="text-gray-900 hover:text-gray-700 transition font-medium"
+              >
+                Log in
+              </button>
             </div>
           </div>
         </div>
