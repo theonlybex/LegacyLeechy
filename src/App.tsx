@@ -392,15 +392,17 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="space-y-6">
-                <img
-                  src="/LeechyMainLogoTransparent.png"
-                  alt="Leechy Logo"
-                  className="w-64 h-auto"
-                />
-                <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
-                  List it. Earn on it.
-                </h1>
+              <div className="space-y-8">
+                <div className="space-y-2">
+                  <img
+                    src="/LeechyMainLogoTransparent.png"
+                    alt="Leechy Logo"
+                    className="w-64 h-auto"
+                  />
+                  <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
+                    List it. Earn on it.
+                  </h1>
+                </div>
                 <p className="text-xl text-gray-100">
                   Turn your unused items into cash.<br />List your items and start earning today.
                 </p>
