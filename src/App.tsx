@@ -395,7 +395,7 @@ function App() {
               <div className="space-y-8">
                 <div>
                   <img
-                    src="/LeechyMainLogoTransparent.png"
+                    src="/LeechyMainLogoTransparentCut.png"
                     alt="Leechy Logo"
                     className="w-64 h-auto"
                   />
