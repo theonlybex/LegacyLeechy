@@ -522,7 +522,7 @@ function App() {
               <div className="space-y-4">
                 <h2 className="text-4xl font-bold">Get the Leechy App</h2>
                 <p className="text-gray-300 text-lg">
-                  Manage your listings, chat with buyers, and track earnings on the go.
+                  Manage your listings, chat with renters, and track earnings on the go.
                 </p>
               </div>
 
