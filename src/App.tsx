@@ -420,7 +420,7 @@ function App() {
                   onClick={() => setShowSignUp(true)}
                   className="bg-green-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition"
                 >
-                  Start Selling
+                  Start Renting
                 </button>
                 <button
                   onClick={() => {
