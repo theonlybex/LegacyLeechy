@@ -561,7 +561,7 @@ function App() {
                 alt="Leechy Logo"
                 className="w-12 h-12 rounded-full object-cover mb-4"
               />
-              <p className="text-gray-600">Turn your unused items into cash.</p>
+              <p className="text-gray-600">The rental marketplace for everyone.</p>
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">Browse</h4>
