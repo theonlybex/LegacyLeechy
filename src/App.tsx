@@ -77,8 +77,8 @@ function App() {
 
   const steps = [
     { number: 1, title: 'List Your Item', description: 'Take photos, add details, and set your price' },
-    { number: 2, title: 'Get Discovered', description: 'Buyers browse and find exactly what they want' },
-    { number: 3, title: 'Make the Sale', description: 'Connect with buyers and arrange delivery' },
+    { number: 2, title: 'Get Discovered', description: 'Renters browse and find exactly what they want' },
+    { number: 3, title: 'Make the Sale', description: 'Connect with renters and arrange delivery' },
     { number: 4, title: 'Earn Cash', description: 'Get paid securely through our platform' },
   ];
 
