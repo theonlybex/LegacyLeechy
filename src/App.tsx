@@ -111,6 +111,7 @@ function App() {
                 onClick={() => {
                   setSearchOpen(false);
                   setFilterOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 className="hover:opacity-80 transition cursor-pointer"
               >
@@ -147,6 +148,7 @@ function App() {
                 onClick={() => {
                   setSearchOpen(false);
                   setFilterOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 className="text-gray-900 hover:text-gray-700 transition font-medium"
               >
