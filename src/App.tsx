@@ -436,7 +436,7 @@ function App() {
 
             <div className="relative h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=600"
+                src="/image copy copy copy copy copy.png"
                 alt="Hero"
                 className="w-full h-full object-cover"
               />
