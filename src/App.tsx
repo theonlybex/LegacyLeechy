@@ -1,7 +1,8 @@
-import { ChevronRight, Search, MessageSquare, Plus, Download, Apple, Play, SlidersHorizontal, Minus } from 'lucide-react';
+import { ChevronRight, Search, MessageSquare, Plus, Download, Apple, Play, SlidersHorizontal, Minus, User, LogOut } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { supabase, type Listing } from './lib/supabase';
 import SignUpPage from './components/SignUpPage';
+import { useAuth } from './contexts/AuthContext';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,6 +16,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [initialTab, setInitialTab] = useState<'signup' | 'login'>('signup');
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     if (searchOpen) {
@@ -163,24 +165,42 @@ function App() {
               >
                 Listings
               </button>
-              <button
-                onClick={() => {
-                  setInitialTab('signup');
-                  setShowSignUp(true);
-                }}
-                className="text-gray-900 hover:text-gray-700 transition font-medium"
-              >
-                Sign up
-              </button>
-              <button
-                onClick={() => {
-                  setInitialTab('login');
-                  setShowSignUp(true);
-                }}
-                className="text-gray-900 hover:text-gray-700 transition font-medium"
-              >
-                Log in
-              </button>
+              {user ? (
+                <>
+                  <div className="flex items-center space-x-2 text-gray-700">
+                    <User size={18} />
+                    <span className="text-sm font-medium">{user.email}</span>
+                  </div>
+                  <button
+                    onClick={() => signOut()}
+                    className="flex items-center space-x-1 text-gray-900 hover:text-gray-700 transition font-medium"
+                  >
+                    <LogOut size={18} />
+                    <span>Log out</span>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={() => {
+                      setInitialTab('signup');
+                      setShowSignUp(true);
+                    }}
+                    className="text-gray-900 hover:text-gray-700 transition font-medium"
+                  >
+                    Sign up
+                  </button>
+                  <button
+                    onClick={() => {
+                      setInitialTab('login');
+                      setShowSignUp(true);
+                    }}
+                    className="text-gray-900 hover:text-gray-700 transition font-medium"
+                  >
+                    Log in
+                  </button>
+                </>
+              )}
             </div>
 
             <button

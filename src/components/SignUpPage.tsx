@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Search } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
 interface SignUpPageProps {
   onClose: () => void;
@@ -15,10 +16,56 @@ export default function SignUpPage({ onClose, initialTab = 'signup' }: SignUpPag
     password: '',
     acceptTerms: false,
   });
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: '',
+  });
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const { signUp, signIn } = useAuth();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSignUpSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setError(null);
+    setLoading(true);
+
+    const { error } = await signUp(
+      formData.email,
+      formData.password,
+      formData.firstName,
+      formData.lastName
+    );
+
+    setLoading(false);
+
+    if (error) {
+      setError(error.message);
+    } else {
+      setSuccess(true);
+      setTimeout(() => {
+        onClose();
+      }, 1500);
+    }
+  };
+
+  const handleLoginSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    const { error } = await signIn(loginData.email, loginData.password);
+
+    setLoading(false);
+
+    if (error) {
+      setError(error.message);
+    } else {
+      setSuccess(true);
+      setTimeout(() => {
+        onClose();
+      }, 1500);
+    }
   };
 
   return (
@@ -111,8 +158,18 @@ export default function SignUpPage({ onClose, initialTab = 'signup' }: SignUpPag
         </div>
 
         <div className="p-8">
+          {error && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
+              {error}
+            </div>
+          )}
+          {success && (
+            <div className="mb-4 p-3 bg-green-50 border border-green-200 text-green-700 rounded-lg text-sm">
+              Success! Redirecting...
+            </div>
+          )}
           {activeTab === 'signup' ? (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSignUpSubmit} className="space-y-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email
@@ -197,13 +254,14 @@ export default function SignUpPage({ onClose, initialTab = 'signup' }: SignUpPag
 
               <button
                 type="submit"
-                className="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition"
+                disabled={loading}
+                className="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Sign up
+                {loading ? 'Signing up...' : 'Sign up'}
               </button>
             </form>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleLoginSubmit} className="space-y-6">
               <div>
                 <label htmlFor="login-email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email
@@ -211,6 +269,8 @@ export default function SignUpPage({ onClose, initialTab = 'signup' }: SignUpPag
                 <input
                   type="email"
                   id="login-email"
+                  value={loginData.email}
+                  onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
                   placeholder="jane.doe@example.com"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition"
                   required
@@ -224,6 +284,8 @@ export default function SignUpPage({ onClose, initialTab = 'signup' }: SignUpPag
                 <input
                   type="password"
                   id="login-password"
+                  value={loginData.password}
+                  onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
                   placeholder="Enter your password..."
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition"
                   required
@@ -248,9 +310,10 @@ export default function SignUpPage({ onClose, initialTab = 'signup' }: SignUpPag
 
               <button
                 type="submit"
-                className="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition"
+                disabled={loading}
+                className="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Log in
+                {loading ? 'Logging in...' : 'Log in'}
               </button>
             </form>
           )}
